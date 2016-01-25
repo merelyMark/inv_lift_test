@@ -146,10 +146,12 @@ int main()
 
 	for (int i = 0; i < h_c.size(); i++){
 		if (h_c[i] != h_cout[i]){
-			std::cout << i << " " << h_c[i] << " " << h_cout[i] << std::endl;
+			std::cout << "Borked (values should be the same):  at index " << i << " cpu value: " << h_c[i] << " gpu value: " << h_cout[i] << std::endl;
 			exit(1);
 		}
 	}
+
+	std::cout << "Finished correctly." << std::endl;
 
     return 0;
 }
