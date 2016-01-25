@@ -20,3 +20,24 @@ Acer Nitro v15 (i7-4720HQ and 860M) with Ubuntu 14.04.3 and CUDA 7.0.
 Also, i7-6700 and Quadro M4000 with Ubuntu 14.0.4.3 and  CUDA 7.5 (driver 352.63).
 
 
+Output using CUDA 7.5 with a Quadro M4000 (Ubuntu 14.04.3):
+```shell
+mkim@hyper:~/inv_lift_test/DecodeTest$ /usr/local/cuda-7.5/bin/nvcc -arch=sm_52 kernel.cu 
+kernel.cu(110): warning: variable "thread_cnt" was declared but never referenced
+
+kernel.cu(110): warning: variable "thread_cnt" was declared but never referenced
+
+mkim@hyper:~/inv_lift_test/DecodeTest$ ./a.out 
+Borked (values should be the same):  at index 0 cpu value: -20 gpu value: 84
+```
+
+Ouput using CUDA 7.0 with a Quadro M4000 (Ubuntu 14.04.3):
+```
+mkim@hyper:~/inv_lift_test/DecodeTest$ /usr/local/cuda-7.0/bin/nvcc -arch=sm_52 kernel.cu 
+kernel.cu(110): warning: variable "thread_cnt" was declared but never referenced
+
+kernel.cu(110): warning: variable "thread_cnt" was declared but never referenced
+
+mkim@hyper:~/inv_lift_test/DecodeTest$ ./a.out 
+Finished correctly.
+```
